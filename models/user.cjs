@@ -19,6 +19,7 @@ const userSchema = new Schema({
     minLength: 3,
     required: true,
   },
+  gamesaves: []
 }, {
     timestamps: true,
     // Even though it's hashed - don't serialize the password

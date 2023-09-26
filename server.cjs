@@ -3,6 +3,7 @@ const express = require('express')
 const path = require('path')
 const favicon = require('serve-favicon')
 const logger = require('morgan')
+const methodOverride = require('method-override')
 
 // Connect to database
 require("./config/database.cjs")
@@ -14,6 +15,8 @@ const app = express()
 app.use(logger('dev'))
 // middleware to parse incoming JSON data
 app.use(express.json())
+// Override method
+app.use(methodOverride('_method'));
 
 // Configure both serve-favicon & static middleware
 // to serve from the production 'build' folder

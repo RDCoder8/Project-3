@@ -10,6 +10,9 @@ router.post("/", usersCtrl.create)
 // /api/users/login
 router.post("/login", usersCtrl.login)
 
+// /api/users/
+router.delete("/", usersCtrl.deleteUser)
+
 router.get('/check-token', ensureLoggedIn,  usersCtrl.checkToken)
 
 

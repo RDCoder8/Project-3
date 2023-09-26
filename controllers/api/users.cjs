@@ -5,7 +5,8 @@ const bcrypt = require("bcrypt");
 module.exports = {
   create,
   login,
-  checkToken
+  checkToken,
+  deleteUser
 };
 
 async function create(req, res) {
@@ -47,6 +48,15 @@ function checkToken(req, res) {
   // req.user will always be there for you when a token is sent
   console.log(req.user)
   res.json(req.exp)
+}
+
+async function deleteUser(req, res) {
+  try {
+    const user = await User.findByIdAndDelete({ email: req.body.email })
+    res.status(200).redirect("/api/users")
+  } catch (error) {
+    res.status(400).json("Bad Crendentials");
+  }
 }
 
 /*-- Helper Functions ---*/

@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require('bcrypt')
 
+//Number of rounds of encryption
 const SALT_ROUNDS = 6
 
 const userSchema = new Schema({

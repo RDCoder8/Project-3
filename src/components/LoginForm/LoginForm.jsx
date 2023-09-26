@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 
-export default function LoginForm({ setUser }) {
+export default function LoginForm({ setUser, swapToLogin }) {
 const [credentials, setCredentials] = useState({
   email: '',
   password: ''
@@ -38,6 +38,7 @@ return (
         <label>Password</label>
         <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
         <button type="submit">LOG IN</button>
+        <a onClick={swapToLogin}>Click Here to Register</a>
       </form>
     </div>
     <p className="error-message">&nbsp;{error}</p>

@@ -76,6 +76,7 @@ export default class SignUpForm extends Component {
             <button type="submit" disabled={disable}>
               SIGN UP
             </button>
+            <a onClick={this.props.swapToLogin}>Click here to login!</a>
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>

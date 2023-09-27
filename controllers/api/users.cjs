@@ -52,10 +52,18 @@ function checkToken(req, res) {
 
 async function deleteUser(req, res) {
   try {
-    const user = await User.findByIdAndDelete({ email: req.body.email })
-    res.status(200).redirect("/api/users")
+    await User.findOneAndDelete({ email: req.body.email })
+    res.json("Good Job")
   } catch (error) {
     res.status(400).json("Bad Crendentials");
+  }
+}
+
+async function updateName (req, res) {
+  try {
+    await User.findByIdAndUpdate()
+  } catch (error) {
+    res.status(400).json("Some Weird Error")
   }
 }
 

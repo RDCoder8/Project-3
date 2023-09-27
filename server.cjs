@@ -4,6 +4,7 @@ const path = require('path')
 const favicon = require('serve-favicon')
 const logger = require('morgan')
 const methodOverride = require('method-override')
+const userRouter = require('./routes/api/users.cjs')
 
 // Connect to database
 require("./config/database.cjs")
@@ -33,7 +34,7 @@ app.get("/test", (req, res) => {
     res.send("You just hit an API route!")
 })
 
-const userRouter = require('./routes/api/users.cjs')
+
 //Router Setup
 //If the request starts with /api/users/ direct it to the userRouter()
 app.use('/api/users', userRouter)

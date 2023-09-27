@@ -18,6 +18,10 @@ export async function login(credentials) {
   return getUser()
 }
 
+export async function deleteUser(credentials) {
+  await usersAPI.deleteUser(credentials)
+}
+
 export function getToken() {
   // getItem returns null if there's no string
   const token = localStorage.getItem("token");

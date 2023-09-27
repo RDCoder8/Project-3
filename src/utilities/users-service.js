@@ -22,6 +22,13 @@ export async function deleteUser(credentials) {
   await usersAPI.deleteUser(credentials)
 }
 
+export async function update(credentials) {
+  const token = await usersAPI.update(credentials)
+  localStorage.setItem("token", token);
+  return getUser()
+}
+
+
 export function getToken() {
   // getItem returns null if there's no string
   const token = localStorage.getItem("token");

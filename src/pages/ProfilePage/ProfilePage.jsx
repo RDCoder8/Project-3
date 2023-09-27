@@ -8,7 +8,7 @@ export default function ProfilePage(props) {
     <div className={styles.ProfilePage}>
     <ProfileAside user={props.user} />
     <main>
-    <NameChangeForm setUser={props.setUser}/>
+    <NameChangeForm setUser={props.setUser} user={props.user}/>
     <DeleteUserForm user={props.user} setUser={props.setUser} />
     </main>
     </div>

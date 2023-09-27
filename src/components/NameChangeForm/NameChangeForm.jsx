@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 
-export default function NameChangeForm({setUser}) {
+export default function NameChangeForm({setUser, user}) {
     const [credentials, setCredentials] = useState({
         name: '',
+        id: user._id
       });
       const [error, setError] = useState('');
       
@@ -16,10 +17,10 @@ export default function NameChangeForm({setUser}) {
         // Prevent form from being submitted to the server
         evt.preventDefault();
         try {
-          await usersService.update(credentials);
-          setUser(user);
+          const userUpdated = await usersService.update(credentials);
+          setUser(userUpdated);
         } catch {
-          setError('Log In Failed - Try Again');
+          setError('Name Changed Failed');
         }
       }
   return (

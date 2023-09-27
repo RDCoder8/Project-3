@@ -6,7 +6,8 @@ module.exports = {
   create,
   login,
   checkToken,
-  deleteUser
+  deleteUser,
+  update
 };
 
 async function create(req, res) {
@@ -40,7 +41,7 @@ async function login(req, res) {
     res.json(token);
   } catch (err) {
     console.log(err);
-    res.status(400).json("Bad Crendentials");
+    res.status(400).json("Bad Credentials");
   }
 }
 
@@ -55,13 +56,15 @@ async function deleteUser(req, res) {
     await User.findOneAndDelete({ email: req.body.email })
     res.json("Good Job")
   } catch (error) {
-    res.status(400).json("Bad Crendentials");
+    res.status(400).json("Bad Credentials");
   }
 }
 
-async function updateName (req, res) {
+async function update (req, res) {
   try {
-    await User.findByIdAndUpdate()
+    const user = await User.findByIdAndUpdate(req.body.id, {name: req.body.name}, {new: true})
+    const token = createJWT(user);
+    res.json(token)
   } catch (error) {
     res.status(400).json("Some Weird Error")
   }

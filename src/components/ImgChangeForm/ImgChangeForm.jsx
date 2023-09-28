@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 
-export default function NameChangeForm({setUser, user}) {
+export default function ImgChangeForm({setUser, user}) {
     const [credentials, setCredentials] = useState({
-        name: '',
+        profileimg: '',
         id: user._id
       });
       const [error, setError] = useState('');
@@ -17,20 +17,21 @@ export default function NameChangeForm({setUser, user}) {
         // Prevent form from being submitted to the server
         evt.preventDefault();
         try {
-          const userUpdated = await usersService.updateName(credentials);
+          console.log(credentials.profileimg)
+          const userUpdated = await usersService.updateImg(credentials);
           setUser(userUpdated);
         } catch {
-          setError('Name Changed Failed');
+          setError('Img Changed Failed');
         }
       }
   return (
     <div>
     <div className="form-container" >
-        <h1>Change Yo Name</h1>
+        <h1>Set a profile image</h1>
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input type="text" name="name" value={credentials.name} onChange={handleChange} required />
-        <button type="submit">Change Name</button>
+        <label>Image Link</label>
+        <input type="text" name="profileimg" value={credentials.profileimg} onChange={handleChange} required />
+        <button type="submit">Set profile image</button>
       </form>
     </div>
   </div>

@@ -7,7 +7,8 @@ module.exports = {
   login,
   checkToken,
   deleteUser,
-  update
+  updateName,
+  updateProfileImg
 };
 
 async function create(req, res) {
@@ -60,13 +61,23 @@ async function deleteUser(req, res) {
   }
 }
 
-async function update (req, res) {
+async function updateName (req, res) {
   try {
     const user = await User.findByIdAndUpdate(req.body.id, {name: req.body.name}, {new: true})
     const token = createJWT(user);
     res.json(token)
   } catch (error) {
     res.status(400).json("Some Weird Error")
+  }
+}
+
+async function updateProfileImg (req, res) {
+  try {
+    const user = await User.findByIdAndUpdate(req.body.id, {profileimg: req.body.profileimg}, {new: true})
+    const token = createJWT(user);
+    res.json(token)
+  } catch (error) {
+    res.status(400).json("Some Img Error")
   }
 }
 

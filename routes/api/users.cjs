@@ -14,7 +14,9 @@ router.post("/login", usersCtrl.login)
 router.delete("/", usersCtrl.deleteUser)
 
 // /api/users/
-router.put("/", usersCtrl.update)
+router.put("/updatename", usersCtrl.updateName)
+
+router.put("/updateimg", usersCtrl.updateProfileImg)
 
 router.get('/check-token', ensureLoggedIn,  usersCtrl.checkToken)
 

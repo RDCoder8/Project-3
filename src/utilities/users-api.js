@@ -58,8 +58,12 @@ export function deleteUser(credentials) {
   return sendRequest(`${BASE_URL}`, "DELETE", credentials);
 }
 
-export function update(credentials) {
-  return sendRequest(`${BASE_URL}`, "PUT", credentials)
+export function updateName(credentials) {
+  return sendRequest(`${BASE_URL}/updatename`, "PUT", credentials)
+}
+
+export function updateImg(credentials) {
+  return sendRequest(`${BASE_URL}/updateimg`, "PUT", credentials)
 }
 
 export function checkToken() {

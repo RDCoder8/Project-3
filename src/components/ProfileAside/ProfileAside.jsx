@@ -1,11 +1,12 @@
+import styles from "./ProfileAside.module.css"
+
 export default function ProfileAside({user}) {
   return (
-    <aside>
-      <figure>
-        <img src="" alt="Profile Pic" />
-      </figure>
-      <h3>{user.name}</h3>
-      <p>Some Quote</p>
+    <aside className={styles.ProfileAside}>
+        <img src={user.profileimg} alt="Profile Pic" />
+      <h3>{user.name} 👨‍💻 </h3>
+      <small>{user.email} 📧 </small>
+      <p>Some Quote{user.profilequote}</p>
     </aside>
   );
 }

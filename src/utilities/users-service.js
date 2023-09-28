@@ -22,8 +22,14 @@ export async function deleteUser(credentials) {
   await usersAPI.deleteUser(credentials)
 }
 
-export async function update(credentials) {
-  const token = await usersAPI.update(credentials)
+export async function updateName(credentials) {
+  const token = await usersAPI.updateName(credentials)
+  localStorage.setItem("token", token);
+  return getUser()
+}
+
+export async function updateImg(credentials) {
+  const token = await usersAPI.updateImg(credentials)
   localStorage.setItem("token", token);
   return getUser()
 }

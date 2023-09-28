@@ -19,6 +19,8 @@ const userSchema = new Schema({
     minLength: 3,
     required: true,
   },
+  profileimg: {type: String, default: "http://placekitten.com/200/300" },
+  profilequote: {type: String, default: "Your Awesome Goes Here"},
   gamesaves: []
 }, {
     timestamps: true,

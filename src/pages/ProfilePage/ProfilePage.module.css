@@ -1,13 +1,23 @@
 .ProfilePage {
     display: flex;
     width: 100%;
-    gap: 5vw;
+    gap: 3vw
 }
 
 .ProfilePage > aside {
-    width: 20vw;
+    width: 25vw;
+    background-color: #3184FF;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+    padding-top: 1vh;
+    border-radius: 1vmin
 }
 
 .ProfilePage > main > div {
     width: 60vw;
+}
+
+h1, h3 {
+    color: #222034;
+    image-rendering: pixelated;
 }

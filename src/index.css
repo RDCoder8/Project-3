@@ -21,9 +21,9 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  background-color: #56C6E4;
   padding: 2vmin;
-  height: 100vh;
+  height: 120vh;
 }
 
 code {
@@ -83,6 +83,7 @@ code {
   background-color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
+  margin-bottom: 3vh
 }
 
 p.error-message {
@@ -154,4 +155,13 @@ button[type="submit"] {
 
 a:hover {
   cursor: pointer;
+}
+
+.game-window {
+  height: 60vh;
+  width: 70vw;
+  outline: 2px solid blue;
+  border: 5px solid lightblue;
+  box-shadow: 40px -30px 5px 0px rgba(113,68,235,1);
+  
 }

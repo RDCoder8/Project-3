@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
 
-export default function BattleStage({player, enemy}) {
+export default function BattleStage({ player, enemy, setGameState, gameState }) {
   return (
-    <section>BattleStage</section>
-  )
+    <section>
+      <h1>Fight</h1>{" "}
+      <ul>
+        <button onClick={() =>setGameState({...gameState, showBattle: false })}>End Fight</button>
+      </ul>
+    </section>
+  );
 }

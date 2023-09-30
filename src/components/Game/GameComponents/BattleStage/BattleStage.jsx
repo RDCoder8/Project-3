@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function BattleStage({ player, enemy, setGameState, gameState }) {
+export default function BattleStage({ player, enemy, gameState, playerHealth, enemyHealth }) {
   return (
-    <section>
-      <h1>Fight</h1>{" "}
-      <ul>
-        <button onClick={() =>setGameState({...gameState, showBattle: false })}>End Fight</button>
-      </ul>
+    <section className="stage">
+      <section>
+      <img src={player.picture} alt="" />
+      <h4>{player.name}</h4>
+      <h3>EGO: {playerHealth}</h3>
+      </section>
+      <section>
+      <img src={enemy.picture} alt="" width={150} />
+      <h4>{enemy.name}</h4>
+      <h3>EGO: {enemyHealth}</h3>
+      </section>
     </section>
   );
 }

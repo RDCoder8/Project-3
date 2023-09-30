@@ -158,8 +158,8 @@ a:hover {
 }
 
 .game-window {
-  height: 60vh;
-  width: 70vw;
+  height: 80vh;
+  width: 95vw;
   outline: 2px solid blue;
   border: 5px solid lightblue;
   box-shadow: 40px -30px 5px 0px rgba(113,68,235,1);
@@ -173,8 +173,17 @@ a:hover {
 }
 
 .message-box {
-  height: 27%;
+  height: 30%;
   width: 80%;
   outline: 2px solid black;
   border: 4px solid silver;
+}
+
+.stage {
+  height: 75%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 3%;
+  padding-right: 3%;
 }

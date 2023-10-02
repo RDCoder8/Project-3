@@ -12,6 +12,7 @@ export default function GameWindow({ user, setUser }) {
 
   const [player, setPlayer] = useState(null);
   const [enemy, setEnemy] = useState(null);
+  const [ending, setEnding] = useState("")
 
   function checkBattle() {
     if (!gameState.showStartMenu && !gameState.showBattle) {
@@ -22,6 +23,7 @@ export default function GameWindow({ user, setUser }) {
           player={player}
           enemy={enemy}
           user={user}
+          ending={ending}
         />
       );
     } else {
@@ -34,6 +36,7 @@ export default function GameWindow({ user, setUser }) {
           player={player}
           enemy={enemy}
           user={user}
+          setEnding={setEnding}
         />
       );
     }

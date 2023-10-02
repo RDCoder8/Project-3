@@ -14,6 +14,7 @@ export default function Battle({
   enemy,
   setPlayer,
   setEnemy,
+  setEnding,
   user,
 }) {
   const [playerHealth, setPlayerHealth] = useState(30);
@@ -22,12 +23,23 @@ export default function Battle({
   const [messageArray, setMessageArray] = useState([]);
   const [toggleButtons, setToggleButtons] = useState(true);
   const [hit, setHit] = useState(false)
+  const [inspirationCounter, setInspirationCounter] = useState(0)
+  const [jokeCounter, setJokeCounter] = useState(0)
 
 function checkLife() {
   if (playerHealth <= 0 || enemyHealth <= 0) {
     gameOver()
     setMessageArray([])
-  } 
+    setEnding("Fighting")
+  }
+  if (inspirationCounter > 4) {
+    gameOver()
+    setEnding("Inspired")
+  }
+  if (jokeCounter > 4) {
+    gameOver()
+    setEnding("Funny")
+  }
 }
 
 function gameOver() {
@@ -47,16 +59,19 @@ function gameOver() {
     }
     if (messageArray.length === 2 && hit) {
         setEnemyHealth(enemyHealth - 5)
-        
       }
+    if (messageArray.length === 1) {
+      setPlayerHealth(playerHealth - 5)
+    }
   }
 
   function jokeButtonClick() {
     setToggleButtons(false);
     fetchDadJoke(setQuote);
+    setJokeCounter(jokeCounter + 1)
     messageArray.push(
       "The Tight Crew waits to see if the monster laughs",
-      "You're not funny",
+      "'You're the only joke here'",
       "The Tight Crew re-thinks their career as stand-up comedians"
     );
   }
@@ -67,19 +82,25 @@ function gameOver() {
     fetchInsult(setQuote);
     messageArray.push(
       "The Tight Crew damaged the beast's ego!",
-      "Is that the best you've got?",
-      "The Tight Crew continues their fight against the beast"
+      "'Is that the best you've got?'",
+      "The code dragon melts their minds with errors"
     );
   }
 
   function inspirationButtonClick() {
     setToggleButtons(false);
     fetchInspiration(setQuote);
+    setInspirationCounter(inspirationCounter + 1)
     messageArray.push(
       "The Tight Crew feels inspired",
-      "Why are you trying to get inspired?",
-      "The Tight Crew continues their fight against the beast"
+      "'Why are you trying to get inspired?'",
+      "The beast lashes out at the Tight Crew"
     );
+  }
+
+  function quitButtonClick() {
+    setEnding("Farmer")
+    gameOver()
   }
 
 
@@ -99,7 +120,7 @@ function gameOver() {
       )}
       {player ? (
         <MessageBox
-          gameOver={gameOver}
+          gameOver={quitButtonClick}
           player={player}
           enemy={enemy}
           jokeButtonClick={jokeButtonClick}

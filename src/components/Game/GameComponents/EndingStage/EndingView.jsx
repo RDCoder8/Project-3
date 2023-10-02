@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function EndingStage({ gameState, setGameState }) {
   const [message, setMessage] = useState("")
+  const [messageArray, setMessageArray] = useState([])
   return (
     <section className='battle-screen flex-ctr-ctr flex-col'>
       <h1>Ending</h1>

@@ -1,7 +1,9 @@
 import StartMenu from "./GameComponents/StartMenu/StartMenu";
 import Battle from "./GameComponents/Battle/Battle";
 import EndingStage from "./GameComponents/EndingStage/EndingView";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import music from "../../assets/tightcrewtomcardy.mp3"
+
 
 export default function GameWindow({ user, setUser }) {
   const [gameState, setGameState] = useState({
@@ -13,6 +15,8 @@ export default function GameWindow({ user, setUser }) {
   const [player, setPlayer] = useState(null);
   const [enemy, setEnemy] = useState(null);
   const [ending, setEnding] = useState("")
+  const audio = new Audio(music);
+  audio.loop = true;
 
   function checkBattle() {
     if (!gameState.showStartMenu && !gameState.showBattle) {
@@ -41,8 +45,12 @@ export default function GameWindow({ user, setUser }) {
       );
     }
   }
+
   return (
     <main className="game-window">
+      <button className="music-button" onClick={() => {
+          audio.loop = true;
+          audio.play();}}>🎵</button>
       {gameState.showStartMenu ? (
         <StartMenu
           user={user}
@@ -53,6 +61,7 @@ export default function GameWindow({ user, setUser }) {
       ) : (
         checkBattle()
       )}
+      
     </main>
   );
 }

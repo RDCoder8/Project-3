@@ -19,12 +19,13 @@ export default function Battle({
 }) {
   const [playerHealth, setPlayerHealth] = useState(30);
   const [enemyHealth, setEnemyHealth] = useState(30);
-  const [quote, setQuote] = useState("Pick a team!");
-  const [messageArray, setMessageArray] = useState([]);
+  const [quote, setQuote] = useState("Trials of a Software Engineer are never-ending...");
+  const [messageArray, setMessageArray] = useState(["stuff stuff", "stuffy", "More Stuff"]);
   const [toggleButtons, setToggleButtons] = useState(true);
   const [hit, setHit] = useState(false)
   const [inspirationCounter, setInspirationCounter] = useState(0)
   const [jokeCounter, setJokeCounter] = useState(0)
+  const [pickTeam, setPickTeam] = useState(false)
 
 function checkLife() {
   if (playerHealth <= 0 || enemyHealth <= 0) {
@@ -50,7 +51,7 @@ function gameOver() {
     if (messageArray[0]) {
       setQuote(messageArray.shift());
       checkLife()
-    } else {
+    } else if (player) {
       setToggleButtons(true);
       if (gameState.showBattle) {
       setQuote("What to do next?")
@@ -60,8 +61,11 @@ function gameOver() {
     if (messageArray.length === 2 && hit) {
         setEnemyHealth(enemyHealth - 5)
       }
-    if (messageArray.length === 1) {
+    if (player && messageArray.length === 1) {
       setPlayerHealth(playerHealth - 5)
+    }
+    if (!player && messageArray.length === 0) {
+      setPickTeam(true)
     }
   }
 
@@ -116,7 +120,7 @@ function gameOver() {
           enemyHealth={enemyHealth}
         />
       ) : (
-        <IntroSelection user={user} setPlayer={setPlayer} setEnemy={setEnemy} />
+        <IntroSelection user={user} setPlayer={setPlayer} setEnemy={setEnemy} pickTeam={pickTeam} setQuote={setQuote} />
       )}
       {player ? (
         <MessageBox
@@ -131,8 +135,8 @@ function gameOver() {
           toggleButtons={toggleButtons}
         />
       ) : (
-        <section className="message-box" onClick={handleStoryClick}>
-          <p>{quote}</p>
+        <section className="message-box">
+          <p>{quote}<br/><button onClick={handleStoryClick}>Continue</button></p>
         </section>
       )}
     </div>

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function EndingStage({ gameState, setGameState, ending }) {
   const [message, setMessage] = useState(
     "Sometimes...being a Software Engineer is tough..."
   );
-  const [messageArray, setMessageArray] = useState([]);
   const [restart, setRestart] = useState(false);
-
+  const [messageArray, setMessageArray] = useState();
+  
   function pickEnding() {
     if (ending === "Farmer" && !restart) {
       setMessageArray([
@@ -42,10 +42,13 @@ export default function EndingStage({ gameState, setGameState, ending }) {
       if (messageArray.length === 0) {
         setRestart(true);
       } 
-    } else if (!restart) {
-      pickEnding()
-    }
+    } 
   }
+
+  useEffect(()=>{
+    pickEnding()
+  }, [])
+
   return (
     <section className="battle-screen flex-ctr-ctr flex-col">
       <h1>{ending}</h1>

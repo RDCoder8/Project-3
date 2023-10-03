@@ -1,19 +1,3 @@
-# React + Vite
-
-Introduction: A paragraph used to introduce interested parties to the project and needs to include one or more screenshots.
-
-
-
-
-
-
-
-
-Unsolved Problems: List any unsolved issues.
-
-None yet.
-
-
 # FullStack Story 2
 
 ![Alt text](<src/assets/Screenshot 2023-10-03 100010.png>)

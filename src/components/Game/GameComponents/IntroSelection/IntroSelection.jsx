@@ -23,15 +23,15 @@ export default function IntroSelection({ setPlayer, setEnemy, user, pickTeam, se
   return (
     <div className="stage">
       {pickTeam ?<section>
-        <img src="https://placedog.net/300/300" alt="" /><br/>
-        <button onClick={() => pickPlayer("https://placedog.net/300/300")}>
-          Tight Dog Crew{" "}
+        <img className="character-img" src="https://imageupload.io/ib/1BTqj6AvxhuQKXv_1696336965.png" alt="" /><br/>
+        <button onClick={() => pickPlayer("https://imageupload.io/ib/1BTqj6AvxhuQKXv_1696336965.png")}>
+          Meme Team Tight Crew{" "}
         </button>
       </section> : ""}
       {pickTeam ?<section>
-        <img src="http://placekitten.com/300/300" alt="" />{" "}<br />
-        <button onClick={() => pickPlayer("http://placekitten.com/300/300")}>
-          Tight Cat Crew
+        <img className="character-img" src="https://imageupload.io/ib/6gdHqflcpqp5h64_1696337086.png" alt="" />{" "}<br />
+        <button onClick={() => pickPlayer("https://imageupload.io/ib/6gdHqflcpqp5h64_1696337086.png")}>
+          Girl Boss Tight Crew
         </button>
       </section> : ""}
     </div>

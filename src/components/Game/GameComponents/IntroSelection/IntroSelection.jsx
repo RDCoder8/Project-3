@@ -5,7 +5,7 @@ export default function IntroSelection({ setPlayer, setEnemy, user, pickTeam, se
   function enemySet() {
     setEnemy({
       name: "Fullstack Dragon",
-      picture: "src/assets/fullstackdragon.png",
+      picture: "https://imageupload.io/ib/x8zakdXd0q2iRC8_1696338673.png",
       ego: 30,
     })
   }

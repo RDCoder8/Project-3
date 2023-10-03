@@ -20,6 +20,7 @@ My name is Robert and I'm a software engineer. This project is the effort of man
   - MongoDB for database storage
   - Mongoose for data modeling
   - RESTful API architecture
+  - JWT Authentication
 
 ## Getting Started
 

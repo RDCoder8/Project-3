@@ -12,7 +12,7 @@ My name is Robert and I'm a software engineer. This project is the effort of man
   - React.js
   - Axios for API requests
   - React Router for navigation
-  - Multiple APIs to generate quotes
+  - Multiple APIs to generate quotes (icanhazdadjoke API, Insult API by mattbas, Type.fit Inspirational Quote API)
 
 - **Backend**:
   - Node.js

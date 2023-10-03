@@ -14,9 +14,18 @@ export default function GameWindow({ user, setUser }) {
 
   const [player, setPlayer] = useState(null);
   const [enemy, setEnemy] = useState(null);
+  const [musicToggle, setMusicToggle] = useState(true) 
   const [ending, setEnding] = useState("")
   const audio = new Audio(music);
-  audio.loop = true;
+
+  function play() {
+      audio.loop = true;
+      audio.play();
+  }
+
+  function pause() {
+    audio.pause()
+  }
 
   function checkBattle() {
     if (!gameState.showStartMenu && !gameState.showBattle) {
@@ -48,9 +57,8 @@ export default function GameWindow({ user, setUser }) {
 
   return (
     <main className="game-window">
-      <button className="music-button" onClick={() => {
-          audio.loop = true;
-          audio.play();}}>🎵</button>
+    <button className="music-button" onClick={play}>🎵</button>
+    <button className="music-button" onClick={pause}>✖</button>
       {gameState.showStartMenu ? (
         <StartMenu
           user={user}

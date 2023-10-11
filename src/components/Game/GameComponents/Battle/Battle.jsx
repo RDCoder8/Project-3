@@ -20,7 +20,7 @@ export default function Battle({
   const [playerHealth, setPlayerHealth] = useState(30);
   const [enemyHealth, setEnemyHealth] = useState(30);
   const [quote, setQuote] = useState("Trials of a Software Engineer are never-ending...");
-  const [messageArray, setMessageArray] = useState(["stuff stuff", "stuffy", "More Stuff", "Pick Your Crew!"]);
+  const [messageArray, setMessageArray] = useState([`The budding software engineer ${user.name} continued their journey after defeating the front-end fiends`, "Throughout their adventure they battled code beasts on both ends of the Web Dev plane", "And along the way the forged the strongest of bonds creating a powerful team of developers, The Tight Crew!", "Pick Your Crew!"]);
   const [toggleButtons, setToggleButtons] = useState(true);
   const [hit, setHit] = useState(false)
   const [inspirationCounter, setInspirationCounter] = useState(0)

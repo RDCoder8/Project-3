@@ -11,11 +11,12 @@ export default function GameWindow({ user, setUser }) {
     showBattle: false,
     showEnd: false,
   });
-
   const [player, setPlayer] = useState(null);
   const [enemy, setEnemy] = useState(null);
-  const [musicToggle, setMusicToggle] = useState(true) 
   const [ending, setEnding] = useState("")
+  //setting background images at different points
+  const [background, setBackground] = useState("")
+
   const audio = new Audio(music);
 
   function play() {
@@ -37,6 +38,8 @@ export default function GameWindow({ user, setUser }) {
           enemy={enemy}
           user={user}
           ending={ending}
+          background={background}
+          setBackground={setBackground}
         />
       );
     } else {
@@ -50,6 +53,8 @@ export default function GameWindow({ user, setUser }) {
           enemy={enemy}
           user={user}
           setEnding={setEnding}
+          background={background}
+          setBackground={setBackground}
         />
       );
     }

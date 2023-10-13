@@ -22,7 +22,7 @@ export default function Battle({
   const [playerHealth, setPlayerHealth] = useState(30);
   const [enemyHealth, setEnemyHealth] = useState(30);
   const [quote, setQuote] = useState(
-    "Trials of a Software Engineer are never-ending..."
+    "The trials of a Software Engineer are never-ending..."
   );
   const [messageArray, setMessageArray] = useState([
     `The budding software engineer ${user.name} continued their journey after defeating the front-end fiends`,
@@ -134,6 +134,8 @@ export default function Battle({
           setEnemy={setEnemy}
           pickTeam={pickTeam}
           setQuote={setQuote}
+          setBackground={setBackground}
+          background={background}
         />
       )}
       {player ? (

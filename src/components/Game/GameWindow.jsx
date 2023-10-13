@@ -70,6 +70,7 @@ export default function GameWindow({ user, setUser }) {
           setGameState={setGameState}
           gameState={gameState}
           setPlayer={setPlayer}
+          setBackground={setBackground}
         />
       ) : (
         checkBattle()

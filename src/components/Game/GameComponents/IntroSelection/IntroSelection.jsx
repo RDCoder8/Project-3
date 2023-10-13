@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function IntroSelection({ setPlayer, setEnemy, user, pickTeam, setQuote }) {
+export default function IntroSelection({ setPlayer, setEnemy, user, pickTeam, setQuote, setBackground, background }) {
 
   function enemySet() {
     setEnemy({
@@ -18,10 +18,11 @@ export default function IntroSelection({ setPlayer, setEnemy, user, pickTeam, se
       ego: 30,
     })
     setQuote("Now the battle against the Full Stack Dragon Begins!")
+    setBackground("Battle")
   }
 
   return (
-    <div className="stage">
+    <div className={background === "Intro" ? "IntroBG stage" : "stage"}>
       {pickTeam ?<section>
         <img className="character-img" src="https://imageupload.io/ib/1BTqj6AvxhuQKXv_1696336965.png" alt="" /><br/>
         <button onClick={() => pickPlayer("https://imageupload.io/ib/1BTqj6AvxhuQKXv_1696336965.png")}>
